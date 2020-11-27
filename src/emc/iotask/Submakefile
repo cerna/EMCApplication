@@ -7,14 +7,14 @@ USERSRCS += $(IOSRCS) $(IOV2SRCS)
 	    $(LIB_HAL_SO) ../lib/liblinuxcncini.so.0 \
 	    $(LIB_LCNCULAPI_SO)
 	$(ECHO) Linking $(notdir $@)
-	@$(CXX) $(LDFLAGS) -o $@ $(L_HAL) $(L_ULAPI) $^ 
+	@$(CXX) $(LDFLAGS) -o $@ $^ $(L_HAL) $(L_ULAPI)
 
 ../bin/iov2: \
 	    $(call TOOBJS, $(IOV2SRCS)) ../lib/liblinuxcnc.a \
 	    ../lib/libnml.so.0 $(LIB_HAL_SO) \
 	    ../lib/liblinuxcncini.so.0 $(LIB_LCNCULAPI_SO)
 	$(ECHO) Linking $(notdir $@)
-	@$(CXX) $(LDFLAGS) -o $@ $(L_HAL) $(L_ULAPI) $^
+	@$(CXX) $(LDFLAGS) -o $@ $^ $(L_HAL) $(L_ULAPI)
 
 TARGETS += ../bin/io ../bin/iov2
 

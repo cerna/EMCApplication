@@ -39,5 +39,6 @@ TARGETS += ../bin/linuxcnclcd
 	    ../lib/liblinuxcnc.a ../lib/liblinuxcncini.so.0 \
 	    ../lib/libnml.so.0 $(LIB_HAL_SO) $(LIB_LCNCULAPI_SO)
 	$(ECHO) Linking $(notdir $@)
-	$(Q)$(CXX) $(LDFLAGS) -o $@ $(ULFLAGS) $(L_HAL) $(L_ULAPI) $^
+	$(ECHO) "$(L_HAL) $(L_ULAPI)"
+	$(Q)$(CXX) $(LDFLAGS) -o $@ $(ULFLAGS) $^ $(L_HAL) $(L_ULAPI)
 TARGETS += ../bin/halui
